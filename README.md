@@ -22,9 +22,9 @@ This one uses an injected bean IUserDao from the external dependency
 
 This project uses quarkus-1.1.1-Final.
 
-### Building an running
+### Building and running
 
-The project needs JDK-11.
+The project needs JDK-1.8.
 
 First install the dependend artifact: Inside classloader-dependency run
 
