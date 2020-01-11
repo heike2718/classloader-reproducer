@@ -2,7 +2,7 @@
 
 Reproducer for [Quarkus classloader issue](https://github.com/quarkusio/quarkus/issues/5015)
 
-## Description
+### Description
 
 The project consists of 2 artifacts:
 
@@ -18,8 +18,11 @@ This one makes use of an injected bean IOwnService that is localized in the same
 
 This one uses an injected bean IUserDao from the external dependency
 
+### Quarkus version
 
-## Building an running
+This project uses quarkus-1.1.1-Final.
+
+### Building an running
 
 The project needs JDK-11.
 
@@ -31,7 +34,7 @@ Second start the quarkus artifact as usually:
 
 	mvn clean compile quarkus:dev
 
-## Issue
+### Issue
 
 When calling
 
