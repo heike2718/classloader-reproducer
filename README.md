@@ -43,6 +43,13 @@ see [here](./stacktrace)
 
 The bug could only be reproduced when hibernate was included, i.e. JPA.
 
-It was not possible to trigger the bug without JPA ang just an mock dao containing a Map.
+It was not possible to trigger the bug without JPA i.e. using a mock dao containing a Map.
+
+
+### Fix with new class loading mechanism:
+
+[https://github.com/stuartwdouglas/quarkus](https://github.com/stuartwdouglas/quarkus)
+
+The class loader issue is fixed but when switching to Stuarts 999-SNAPSHOT branch we now get a NPE since the EntityManager does not get injected.
 
 
