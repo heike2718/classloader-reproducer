@@ -45,11 +45,14 @@ The bug could only be reproduced when hibernate was included, i.e. JPA.
 
 It was not possible to trigger the bug without JPA i.e. using a mock dao containing a Map.
 
+Since the EntityManager now is contained in classloader-dependency it is not possible to inject it with @Inject as proposed by the Quarkus JPA example any more. Instead it must be annotated with @PersistenceContext.
 
-### Fix with new class loading mechanism:
+Doing this, in order to avoid a NullPointerException, it is necessary to add a persistence.xml.
+
+
+## Proof of fix with new class loading mechanism:
 
 [https://github.com/stuartwdouglas/quarkus](https://github.com/stuartwdouglas/quarkus)
 
-The class loader issue is fixed but when switching to Stuarts 999-SNAPSHOT branch we now get a NPE since the EntityManager does not get injected.
-
+The class loader issue is fixed when switching to Stuarts 999-SNAPSHOT branch, so everything is fine.
 
