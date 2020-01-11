@@ -1,8 +1,6 @@
 # classloader-reproducer
 
-Tried to write a minimal reproducer for [Quarkus classloader issue](https://github.com/quarkusio/quarkus/issues/5015)
-
-__but this was ot successfull__ In this simple settings the runtime ClassCastException could not be reproduced even with "very old" Quarkus-Versions i.e.
+Minimal reproducer for [Quarkus classloader issue](https://github.com/quarkusio/quarkus/issues/5015)
 
 ### Description
 
@@ -35,4 +33,16 @@ First install the dependend artifact: Inside classloader-dependency run
 Second start the quarkus artifact as usually:
 
 	mvn clean compile quarkus:dev
+
+## Stack trace
+
+see [here](./stacktrace)
+
+
+## Remarks
+
+The bug could only be reproduced when hibernate was included, i.e. JPA.
+
+It was not possible to trigger the bug without JPA ang just an mock dao containing a Map.
+
 
