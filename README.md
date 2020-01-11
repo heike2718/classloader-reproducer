@@ -4,7 +4,11 @@ Reproducer for [Quarkus classloader issue](https://github.com/quarkusio/quarkus/
 
 ## Description
 
-The project contains of 2 artifacts: classloader-quarkus is the one that offers a REST-API with two urls
+The project consists of 2 artifacts:
+
+* classloader-dependency is an external maven dependency
+
+* classloader-quarkus is the one that offers a REST-API with two urls
 
 	localhost:8080/quarkus/hello
 
@@ -12,7 +16,7 @@ This one makes use of an injected bean IOwnService that is localized in the same
 
 	localhost:8080/quarkus/users
 
-This one uses an injected bean IUserDao from an external dependency
+This one uses an injected bean IUserDao from the external dependency
 
 
 ## Building an running
