@@ -4,11 +4,18 @@
 // =====================================================
 package de.egladil.web.classloader_dependency.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * User
  */
+@Entity
 public class User {
 
+	@Id
+    @GeneratedValue
 	private Long id;
 
 	private String name;

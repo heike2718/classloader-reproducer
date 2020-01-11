@@ -1,6 +1,8 @@
 # classloader-reproducer
 
-Reproducer for [Quarkus classloader issue](https://github.com/quarkusio/quarkus/issues/5015)
+Tried to write a minimal reproducer for [Quarkus classloader issue](https://github.com/quarkusio/quarkus/issues/5015)
+
+__but this was ot successfull__ In this simple settings the runtime ClassCastException could not be reproduced even with "very old" Quarkus-Versions i.e.
 
 ### Description
 
