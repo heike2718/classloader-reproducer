@@ -1,3 +1,0 @@
-/home/heike/git/classloader-reproducer/classloader-dependency/src/main/java/de/egladil/web/classloader_dependency/dao/IUserDao.java
-/home/heike/git/classloader-reproducer/classloader-dependency/src/main/java/de/egladil/web/classloader_dependency/dao/impl/UserDao.java
-/home/heike/git/classloader-reproducer/classloader-dependency/src/main/java/de/egladil/web/classloader_dependency/domain/User.java
