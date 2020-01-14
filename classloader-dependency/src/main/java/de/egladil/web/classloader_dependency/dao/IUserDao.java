@@ -15,6 +15,6 @@ public interface IUserDao {
 
 	List<User> getUsers();
 
-	User persistUser();
+	User persistUser(User user);
 
 }

@@ -31,9 +31,8 @@ public class User {
 	 * @param id
 	 * @param name
 	 */
-	public User(final Long id, final String name) {
+	public User(final String name) {
 
-		this.id = id;
 		this.name = name;
 	}
 

@@ -9,15 +9,20 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import de.egladil.web.classloader_dependency.dao.IUserDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import de.egladil.web.classloader_dependency.domain.User;
+import de.egladil.web.classloader_dependency.service.IUserService;
 import de.egladil.web.classloader_quarkus.service.IOwnService;
 
 @Path("quarkus")
 public class ExampleResource {
 
+	private static final Logger LOG = LoggerFactory.getLogger(ExampleResource.class);
+
 	@Inject
-	IUserDao userDao;
+	IUserService userService;
 
 	@Inject
 	IOwnService ownService;
@@ -27,19 +32,24 @@ public class ExampleResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getUsers() {
 
+		try {
 
-		User user = userDao.persistUser();
-		if (user == null) {
-			return Response.serverError().entity("{\"message\": \"ERROR: userDao.persist returned null\"}").build();
+			userService.createNewUser();
+
+		} catch (NullPointerException e) {
+			LOG.error(e.getMessage(), e);
+			return Response.serverError().entity("{\"message\": \"ERROR: on createting a new user\"" + e.getMessage() + "}").build();
 		}
 
-		List<User> users = userDao.getUsers();
+		try {
 
-		if (users == null) {
-			return Response.serverError().entity("{\"message\": \"ERROR: userDao.getUser returned null\"}").build();
+			List<User> users = userService.loadUsers();
+			return Response.ok(users).build();
+
+		} catch (NullPointerException e) {
+			LOG.error(e.getMessage(), e);
+			return Response.serverError().entity("{\"message\": \"ERROR: on loading the users\"" + e.getMessage() + "}").build();
 		}
-
-		return Response.ok(users).build();
 
 	}
 
